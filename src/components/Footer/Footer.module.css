@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .footer-wrapper {
+    @apply w-full flex flex-row h-56 bg-gray-700 mt-14 text-gray-300;
+  }
+  .right-content {
+    @apply w-3/5 p-8 text-justify;
+  }
+  .left-content {
+    @apply w-2/5 p-8 text-justify;
+  }
+  .title-content {
+    @apply uppercase font-semibold mb-3 mt-2;
+  }
+  .text-bordered {
+    @apply mb-3 text-sm border-b w-3/4 flex flex-row;
+  }
+  .text-content {
+    @apply mb-3 text-sm w-3/4 flex flex-row;
+  }
+  @media only screen and (max-width: 768px) {
+    .footer-wrapper {
+      @apply w-full flex flex-col h-auto;
+    }
+    .right-content {
+      @apply w-full p-8 text-justify;
+    }
+    .left-content {
+      @apply w-full p-8 text-justify;
+    }
+    .text-bordered {
+      @apply w-full;
+    }
+  }
+}

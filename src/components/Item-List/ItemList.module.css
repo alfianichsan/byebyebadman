@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .item-list-wrapper {
+    @apply w-11/12 h-full flex flex-col text-center;
+  }
+  .item-content {
+    @apply flex flex-row m-5 p-3 items-center justify-center flex-wrap;
+  }
+  .card-container {
+    @apply m-5 px-2 py-3 flex flex-col justify-center items-center hover:border-b border-gray-400 cursor-pointer;
+  }
+  .product-img {
+    @apply object-cover  w-full h-64 transition ease-in-out delay-150;
+  }
+  .product-name {
+    @apply mt-2 p-2 text-center font-medium;
+  }
+  .product-price {
+    @apply text-sm font-semibold;
+  }
+  @media only screen and (max-width: 768px) {
+    .item-list-wrapper {
+      @apply w-full h-full;
+    }
+  }
+}

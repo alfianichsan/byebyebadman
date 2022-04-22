@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-primary-container {
+    @apply w-full flex flex-row py-5 bg-white border-b-2 border-gray-100 justify-between items-center z-40;
+  }
+
+  /* search */
+  .search-wrapper {
+    @apply ml-5 flex flex-row max-h-8;
+  }
+  .search-input {
+    @apply border-2 border-solid border-gray-800;
+  }
+
+  /* Centered logo */
+  .center-logo {
+    @apply m-0 uppercase justify-center text-center text-2xl font-semibold;
+  }
+
+  /* Icon Login and Cart */
+  .right-icon-wrapper {
+    @apply flex items-center px-0 mx-8 text-sm font-normal;
+  }
+  .icons {
+    @apply flex items-center;
+  }
+  .icon-style {
+    @apply flex flex-row items-center mx-3;
+  }
+  .menu-bars {
+    @apply hidden;
+  }
+
+  /* Second Nav */
+  .second-nav-container {
+    @apply w-full flex flex-row bg-gray-50 h-12 border-b-2 justify-center z-30;
+  }
+  /* Nav menu List */
+  .nav-menu-list {
+    @apply list-none flex flex-row items-center justify-between font-medium;
+  }
+  .nav-menu-list li {
+    @apply mx-5 p-1 hover:border-b-2 border-slate-600;
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* Navbar Primary */
+    .nav-primary-container {
+      @apply border-b-2 border-gray-300;
+    }
+
+    /* Search */
+    .search-wrapper {
+      @apply hidden;
+    }
+    /* Centered logo */
+    .center-logo {
+      @apply ml-5 uppercase justify-center text-center text-2xl font-semibold;
+    }
+
+    /* Icons */
+    .menu-bars {
+      @apply flex;
+    }
+    .icons {
+      @apply hidden;
+    }
+
+    /* Second Nav */
+
+    .second-nav-container {
+      @apply w-full h-screen absolute bg-gray-50 border-b-2 justify-between -left-full transition-all ease-out duration-700;
+    }
+    .second-nav-container-active {
+      @apply w-full h-screen z-30 absolute bg-gray-50 border-b-2 justify-between left-0 transition-all ease-in-out duration-700;
+    }
+    .nav-menu-list {
+      @apply w-full flex flex-col mt-5 items-start font-semibold text-xl;
+    }
+    .nav-menu-list a {
+      @apply w-full;
+    }
+    .nav-menu-list li {
+      @apply w-full -ml-1 m-5 mb-10 text-center content-center hover:border-b-2 border-slate-600 list-none;
+    }
+  }
+}
