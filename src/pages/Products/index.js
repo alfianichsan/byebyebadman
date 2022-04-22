@@ -11,7 +11,7 @@ const Products = () => {
         <div className={classes["categories-wrapper"]}>
           <p className={classes["categories-title"]}>Categories</p>
           <Link to="/product/id" className={classes["categories-option"]}>
-            All
+            All Product
           </Link>
           <Link to="/product/id" className={classes["categories-option"]}>
             T-shirt
