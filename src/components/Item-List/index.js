@@ -1,47 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { JohnCena } from "../../assets";
+import { useDispatch, useSelector } from "react-redux";
+import Axios from "axios";
 
 import classes from "./ItemList.module.css";
-
-const DUMMY = [
-  {
-    id: "p1",
-    productName: "John Cena",
-    img: JohnCena,
-    price: 250000,
-  },
-  {
-    id: "p2",
-    productName: "Randy Orton",
-    img: JohnCena,
-    price: 250000,
-  },
-  {
-    id: "p3",
-    productName: "BrockLesnar",
-    img: JohnCena,
-    price: 250000,
-  },
-  {
-    id: "p4",
-    productName: "Harry Maguire",
-    img: JohnCena,
-    price: 250000,
-  },
-  {
-    id: "p5",
-    productName: "LinkinPark",
-    img: JohnCena,
-    price: 250000,
-  },
-  {
-    id: "p6",
-    productName: "Champion",
-    img: JohnCena,
-    price: 250000,
-  },
-];
 
 const Card = (props) => {
   return (
@@ -56,11 +18,27 @@ const Card = (props) => {
 };
 
 const ItemList = () => {
+  const { products } = useSelector((state) => state.ProductsReducer);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    Axios.get("http://localhost:4000/v1/product/all-products")
+      .then((result) => {
+        const response = result.data;
+
+        dispatch({ type: "GET_ALL_PRODUCTS", payload: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className={classes["item-list-wrapper"]}>
       <div className={classes["item-content"]}>
-        {DUMMY.map((product) => (
-          <Card key={product.id} name={product.productName} img={product.img} price={product.price} />
+        {products.map((product) => (
+          <Card key={product._id} name={product.name} img={`http://localhost:4000/images/${product.images[0]}`} price={product.price} />
         ))}
       </div>
     </div>

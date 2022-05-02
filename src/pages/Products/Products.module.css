@@ -18,11 +18,20 @@
   .categories-option {
     @apply my-2 ml-5 w-3/4 border-b hover:text-lg hover:border-b-2;
   }
+  .option-wrapper {
+    @apply flex flex-col;
+  }
   .right-products-container {
-    @apply w-3/4 h-full flex items-center;
+    @apply w-3/4 h-full flex items-center mt-5;
+  }
+  .option-res {
+    @apply hidden;
   }
 
   @media only screen and (max-width: 768px) {
+    .categories-wrapper {
+      @apply flex flex-col p-0 m-0 mx-4 w-full;
+    }
     .products-container {
       @apply flex flex-col items-center;
     }
@@ -34,6 +43,19 @@
     }
     .right-products-container {
       @apply w-full h-full flex items-center m-0;
+    }
+
+    .option-wrapper {
+      @apply hidden;
+    }
+    .option-res {
+      @apply flex flex-col;
+    }
+    .select-categories {
+      @apply w-2/5 border-2 border-solid rounded-sm border-gray-500 px-2 py-1;
+    }
+    .select-categories option {
+      @apply text-sm rounded-none;
     }
   }
 }
