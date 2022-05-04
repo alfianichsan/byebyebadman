@@ -10,8 +10,8 @@ const MainApp = () => {
       <Navbar />
       <div className="flex m-0 w-full h-auto pt-14 items-center justify-center">
         <Switch>
-          <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/*" element={<Home />} />

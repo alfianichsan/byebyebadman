@@ -8,6 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import classes from "./Navbar.module.css";
 import { Divider } from "@mui/material";
+import { Logo2 } from "../../assets";
 
 const Navbar = () => {
   const [onExpand, setOnExpand] = useState(false);
@@ -28,6 +29,7 @@ const Navbar = () => {
 
         {/* Center Icon */}
         <div className={classes["center-logo"]}>
+          <img src={Logo2} alt="Byebyebadman Logo" className="w-full h-12 mx-4" />
           <h1>BYEBYEBADMAN</h1>
         </div>
 

@@ -4,7 +4,7 @@
 
 @layer components {
   .product-detail-container {
-    @apply h-full  w-4/5 flex flex-row pt-14;
+    @apply h-full w-4/5 flex flex-row pt-14 transition-all ease-in-out delay-150;
   }
 
   /* image */
