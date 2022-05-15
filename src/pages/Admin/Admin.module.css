@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button-logout {
+    @apply absolute right-9 flex items-center uppercase text-sm px-2 py-2;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .button-logout {
+      @apply hidden;
+    }
+  }
+}

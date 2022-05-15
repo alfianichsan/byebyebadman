@@ -1,7 +1,7 @@
 import React from "react";
 
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
-import { MainApp } from "../../pages";
+import { Admin, Login, MainApp } from "../../pages";
 import ScrollToTop from "./ScrollToTop";
 
 const Routes = () => {
@@ -9,6 +9,8 @@ const Routes = () => {
     <Router>
       <ScrollToTop />
       <Switch>
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin/*" element={<Admin />} />
         <Route path="/*" element={<MainApp />} />
       </Switch>
     </Router>

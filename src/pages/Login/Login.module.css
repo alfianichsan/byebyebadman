@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .login-container {
+    @apply h-screen w-full flex;
+  }
+  .left-container {
+    @apply w-4/6 h-full flex items-center shadow-md;
+  }
+  .left-container img {
+    @apply h-full w-full;
+  }
+  .right-container {
+    @apply w-2/6 flex flex-col items-center justify-center bg-slate-50;
+  }
+  .logo-container {
+    @apply w-32 h-32 flex justify-center items-center translate-y-16 rounded-full bg-white border border-solid;
+  }
+  .logo-container img {
+    @apply w-28 h-20 mb-5;
+  }
+  .form-wrapper {
+    @apply flex flex-col p-5 px-16 border border-solid rounded bg-white shadow-md;
+  }
+  .form-wrapper p {
+    @apply mt-14 mb-6 text-center uppercase font-sans font-semibold text-2xl;
+  }
+  .form-wrapper label {
+    @apply my-2 font-sans font-normal;
+  }
+  .form-wrapper input {
+    @apply p-1 border-2 border-solid border-slate-500 rounded-md;
+  }
+  .form-wrapper button {
+    @apply uppercase font-medium w-full text-white mt-4 mb-6 py-1 bg-red-700 border border-solid rounded-lg hover:ring-2 hover:ring-red-900;
+  }
+  @media only screen and (max-width: 1120px) {
+    .left-container {
+      @apply w-2/4;
+    }
+    .right-container {
+      @apply w-2/4;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .left-container {
+      @apply hidden;
+    }
+    .right-container {
+      @apply w-full;
+    }
+  }
+}

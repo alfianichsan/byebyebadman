@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./ItemList.module.css";
-import { setProducts } from "../../config/redux/action";
 
 const Card = (props) => {
   return (
@@ -17,15 +15,23 @@ const Card = (props) => {
   );
 };
 
-const ItemList = () => {
-  const { products } = useSelector((state) => state.ProductsReducer);
+const ItemList = (props) => {
+  // const { products, pages } = useSelector((state) => state.ProductsReducer);
+  // const dispatch = useDispatch();
+  // const { search, filter, perPage, page } = props;
 
-  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(setProducts(filter, search, perPage, page));
+  // }, [dispatch, props]);
+  const { products } = props;
 
-  useEffect(() => {
-    dispatch(setProducts());
-    // console.log(products);
-  }, [dispatch]);
+  if (products <= 0) {
+    return (
+      <div className="h-screen w-full flex justify-center items-center text-lg font-mono -mt-24">
+        <p>No Product Found</p>
+      </div>
+    );
+  }
 
   return (
     <div className={classes["item-list-wrapper"]}>

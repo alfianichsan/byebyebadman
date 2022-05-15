@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button-logout {
+    @apply absolute bottom-5 w-4/5;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .button-logout {
+      @apply relative pt-6  justify-center font-medium ml-1;
+    }
+  }
+}
