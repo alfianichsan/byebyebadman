@@ -12,5 +12,6 @@ import DataProducts from "./DataProduct";
 import Selling from "./Selling";
 import DetailModal from "./DetailModal";
 import EditProduct from "./EditProduct";
+import ErrorPage from "./Error";
 
-export { Home, MainApp, Categories, Products, Contact, ProductDetail, Login, Admin, Dashboard, InsertProduct, DataProducts, Selling, DetailModal, EditProduct };
+export { Home, MainApp, Categories, Products, Contact, ProductDetail, Login, Admin, Dashboard, InsertProduct, DataProducts, Selling, DetailModal, EditProduct, ErrorPage };

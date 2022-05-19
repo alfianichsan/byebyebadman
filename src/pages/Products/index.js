@@ -22,11 +22,11 @@ const Products = () => {
   }, [dispatch, isFilter, isSearch, perPage, isPage]);
 
   const onChangeFilter = (event) => {
+    event.preventDefault();
     let filter = event.target.value;
     if (filter === "") {
       filter = "all-products";
     }
-    event.preventDefault();
     setIsfilter(filter);
     setIsPage(1);
   };
@@ -36,7 +36,11 @@ const Products = () => {
     setIsSearch(search);
   };
   const nextPage = () => {
-    setIsPage(isPage + 1);
+    if (isPage < pages.totalPage) {
+      setIsPage(isPage + 1);
+    } else {
+      setIsPage(isPage);
+    }
     scrollTop();
   };
   const prevPage = () => {

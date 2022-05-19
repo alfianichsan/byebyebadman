@@ -10,6 +10,8 @@ import { DetailModal } from "../index";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import AddIcon from "@mui/icons-material/Add";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DataProducts = () => {
   const { products, pages } = useSelector((state) => state.ProductsReducer);
@@ -27,7 +29,7 @@ const DataProducts = () => {
   useEffect(() => {
     dispatch(setProducts(isFilter, isSearch, perPage, isPage));
     // console.log("product:", products);
-  }, [isFilter, isPage]);
+  }, [isFilter, isPage, perPage]);
 
   const confirmDelete = (id) => {
     confirmAlert({
@@ -41,6 +43,15 @@ const DataProducts = () => {
               .then((res) => {
                 // console.log(res.data);
                 dispatch(setProducts(isFilter, isSearch, perPage, 1));
+                toast.success("Data successfully deleted", {
+                  position: "top-center",
+                  autoClose: 2500,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
               })
               .catch((err) => {
                 console.log(err);
@@ -82,23 +93,30 @@ const DataProducts = () => {
     }
   };
   const onChangeFilter = (event) => {
+    event.preventDefault();
     let filter = event.target.value;
     if (filter === "") {
       filter = "all-products";
     }
-    event.preventDefault();
     setIsFilter(filter);
+    setIsPage(1);
+  };
+  const onChangePerPage = (event) => {
+    event.preventDefault();
+    let perPageValue = event.target.value;
+    setPerPage(perPageValue);
     setIsPage(1);
   };
 
   return (
     <div className="flex flex-col w-full h-screen">
       {showModal && <DetailModal idProduct={idProduct} onClose={onClose} />}
+      <ToastContainer />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-auto">
         <div className="w-full bg-white rounded flex flex-row p-2 items-center">
           <p className="font-normal mr-4">Filter by : </p>
-          <div className="flex flex-row justify-center cursor-pointer">
-            <select onChange={onChangeFilter} className="w-36 border-2 border-solid rounded-sm border-gray-500">
+          <div className="flex flex-row justify-center">
+            <select onChange={onChangeFilter} className="w-36 cursor-pointer border-2 border-solid rounded-sm border-gray-500">
               <option value="all-products">All Products</option>
               <option value="t-shirt/long-sleeves">T-Shirts & Long Sleeves</option>
               <option value="shirts/polos">Shirts & Polos</option>
@@ -108,11 +126,21 @@ const DataProducts = () => {
               <option value="jacket/coats">Jackets & Coats</option>
               <option value="footwear">Footwear</option>
             </select>
-            <Link to="/admin/insert-product" className="px-2 py-2 flex flex-row ml-8 border-2 border-gray-500 rounded hover:ring ring-emerald-500">
-              <p className="mr-2">Add Product</p>
-              <AddIcon />
-            </Link>
           </div>
+          <p className="font-normal mr-4 ml-4">Show data : </p>
+          <div className="flex flex-row justify-center ">
+            <select onChange={onChangePerPage} className="cursor-pointer w-12 border-2 border-solid rounded-sm border-gray-500">
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+              <option value={25}>25</option>
+            </select>
+          </div>
+          <Link to="/admin/insert-product" className="px-2 py-2 flex flex-row ml-8 border-2 border-gray-500 rounded hover:ring ring-emerald-500">
+            <p className="mr-2">Add Product</p>
+            <AddIcon />
+          </Link>
         </div>
         <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

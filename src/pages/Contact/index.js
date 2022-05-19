@@ -1,7 +1,12 @@
 import React from "react";
+import { ErrorPage } from "../index";
 
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <div>
+      <ErrorPage />
+    </div>
+  );
 };
 
 export default Contact;

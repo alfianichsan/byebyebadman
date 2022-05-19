@@ -1,8 +1,12 @@
 import Axios from "axios";
 import React, { useState } from "react";
 import { DefaultImage } from "../../assets";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const InsertProduct = () => {
+  const history = useNavigate();
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [size, setSize] = useState("");
@@ -26,32 +30,62 @@ const InsertProduct = () => {
     // console.log("price : ", price);
     // console.log("image1 : ", image1.name);
 
-    Axios.post("http://localhost:4000/v1/product/createProduct", {
-      name: name,
-      type: type,
-      size: size,
-      pxl: pxl,
-      tag: tag,
-      stock: stock,
-      price: price,
-      images: {
-        0: image1,
-        1: image2,
-        2: image3,
-      },
+    const data = new FormData();
+    data.append("name", name);
+    data.append("type", type);
+    data.append("size", size);
+    data.append("pxl", pxl);
+    data.append("tag", tag);
+    data.append("stock", stock);
+    data.append("price", price);
+    data.append("images", image1);
+    data.append("images", image2);
+    data.append("images", image3);
+
+    Axios.post("http://localhost:4000/v1/product/createProduct", data, {
       headers: {
         "content-type": "multipart/form-data",
       },
     })
       .then((res) => {
         console.log("post:", res);
+        setName("");
+        setType("");
+        setSize("");
+        setPxl("");
+        setTag("");
+        setStock("");
+        setPrice("");
+        // setImage1(DefaultImage);
+        // setImage2(DefaultImage);
+        // setImage3(DefaultImage);
+        toast.success("Data successfully added", {
+          position: "top-center",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        // history("/admin/data-products", { replace: true });
       })
       .catch((err) => {
         console.log("post:", err);
+        toast.failed("Failed to create product", {
+          position: "top-center",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
   return (
     <form onSubmit={submitProduct}>
+      <ToastContainer />
       <div className="h-screen w-full flex flex-col mb-8">
         <p className="font-semibold text-xl uppercase">Add product</p>
         <div className="mt-5 flex flex-row w-full flex-wrap items-center">

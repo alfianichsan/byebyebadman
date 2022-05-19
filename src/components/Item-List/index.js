@@ -25,6 +25,8 @@ const ItemList = (props) => {
   // }, [dispatch, props]);
   const { products } = props;
 
+  // console.log(products);
+
   if (products <= 0) {
     return (
       <div className="h-screen w-full flex justify-center items-center text-lg font-mono -mt-24">
