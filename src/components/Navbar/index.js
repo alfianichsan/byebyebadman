@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* Center Icon */}
         <div className={classes["center-logo"]}>
           <img src={Logo2} alt="Byebyebadman Logo" className="w-full h-12 mx-4" />
-          <h1>BYEBYEBADMAN</h1>
+          <h1>BYEBYEBADMAN ijul</h1>
         </div>
 
         {/* Cart and Login || Menu Bars */}
