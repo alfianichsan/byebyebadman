@@ -6,5 +6,6 @@ import Sidebar from "./Sidebar";
 import Modal from "./Modal";
 import Loading from "./Loading";
 import InputFile from "./Input-File";
+import OrderButton from "./Order-Button";
 
-export { Navbar, HeroSection, ItemList, Footer, Sidebar, Modal, Loading, InputFile };
+export { Navbar, HeroSection, ItemList, Footer, Sidebar, Modal, Loading, InputFile, OrderButton };

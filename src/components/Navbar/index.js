@@ -36,14 +36,14 @@ const Navbar = () => {
         {/* Cart and Login || Menu Bars */}
         <div className={classes["right-icon-wrapper"]}>
           <div className={classes["icons"]}>
-            <Link to="/cart">
+            {/* <Link to="/cart">
               <div className={classes["icon-style"]}>
                 <div>
                   <ShoppingBagOutlinedIcon />
                 </div>
                 <p>Cart</p>
               </div>
-            </Link>
+            </Link> */}
             <Divider orientation="vertical" sx={{ height: 20, m: 0.5 }} />
             <Link to="/login">
               <div className={classes["icon-style"]}>

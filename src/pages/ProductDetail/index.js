@@ -2,7 +2,7 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import Loading from "../../components/Loading";
+import { OrderButton, Loading } from "../../components/index";
 
 import classes from "./ProductDetail.module.css";
 
@@ -83,7 +83,7 @@ const ProductDetail = (props) => {
           </div>
         </div>
         <div className={classes["order-button-container"]}>
-          <button className="border-2 border-solid border-gray-400 hover:border-gray-700 hover:scale-105 transition-all ease-out px-5 py-2 rounded-sm font-semibold text-gray-600 ">Order Now</button>
+          <OrderButton name={isResult.name} type={isResult.type} size={isResult.size} tag={isResult.tag} stock={isResult.stock} price={isResult.price} />
         </div>
       </div>
     </div>

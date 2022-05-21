@@ -4,5 +4,7 @@ import Logo1 from "./images/logo1.jpg";
 import Logo2 from "./images/logo2.png";
 import Bg3 from "./images/bg-bbbm.jpg";
 import DefaultImage from "./images/default.png";
+import ShopeeIcon from "./icon/shopee_icon.png";
+import TiktokIcon from "./icon/TikTok_Icon.png";
 
-export { Bg1, Bg2, Logo1, Logo2, Bg3, DefaultImage };
+export { Bg1, Bg2, Logo1, Logo2, Bg3, DefaultImage, ShopeeIcon, TiktokIcon };

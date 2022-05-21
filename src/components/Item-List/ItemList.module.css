@@ -4,7 +4,7 @@
 
 @layer components {
   .item-list-wrapper {
-    @apply w-11/12 h-full flex flex-col text-center;
+    @apply w-full h-full flex flex-col text-center;
   }
   .item-content {
     @apply flex flex-row m-2 p-3 items-center justify-center flex-wrap;
@@ -20,6 +20,11 @@
   }
   .product-price {
     @apply text-sm font-semibold;
+  }
+  @media only screen and (max-width: 1099px) {
+    .product-img {
+      @apply object-cover  w-full h-48 transition ease-in-out delay-150;
+    }
   }
   @media only screen and (max-width: 768px) {
     .item-content {
