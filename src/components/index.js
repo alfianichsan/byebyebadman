@@ -7,5 +7,6 @@ import Modal from "./Modal";
 import Loading from "./Loading";
 import InputFile from "./Input-File";
 import OrderButton from "./Order-Button";
+import NoProduct from "./No-Product";
 
-export { Navbar, HeroSection, ItemList, Footer, Sidebar, Modal, Loading, InputFile, OrderButton };
+export { Navbar, HeroSection, ItemList, Footer, Sidebar, Modal, Loading, InputFile, OrderButton, NoProduct };

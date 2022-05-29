@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import NoProduct from "../No-Product";
 
 import classes from "./ItemList.module.css";
 
@@ -43,11 +44,7 @@ const ItemList = (props) => {
   // console.log(products);
 
   if (products <= 0) {
-    return (
-      <div className="h-screen w-full flex justify-center items-center text-lg font-mono -mt-24">
-        <p>No Product Found</p>
-      </div>
-    );
+    return <NoProduct />;
   }
 
   return (
